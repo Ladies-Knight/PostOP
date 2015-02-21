@@ -1,0 +1,10 @@
+<lkLogin>
+    <app-user>
+        <first-name>Miller</first-name>
+        <last-name>Fanning</last-name>
+    </app-user>
+    <facebook>
+        <username>fanningms@g.cofc.edu</username>
+        <password>dont_you_wish</password>
+    </facebook>
+</lkLogin>
