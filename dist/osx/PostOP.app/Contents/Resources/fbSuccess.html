@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head lang="en">
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Success</title>
     <script src="js/bootstrap.min.js"></script>
     <script src="db.js"></script>
@@ -12,8 +14,9 @@
         var appAccessToken;
         var userToken;
         var FB;
+        var userId;
         FB.init({
-            appId      : '334789983377114',
+            appId      : '331246753731437',
             //channelUrl : '//WWW.YOUR_DOMAIN.COM/channel.html', // Channel File
             status     : true, // check login status
             cookie     : true, // enable cookies to allow the server to access the session
@@ -22,8 +25,6 @@
         FB.login();
         FB.getLoginStatus(function(response) {
             appAccessToken = response.authResponse.accessToken;
-            console.log("appAccessToken === " + appAccessToken);
-            console.log("response.status === " + response.status);
             urlChecker();
         });
         userToken = document.URL;
@@ -44,23 +45,13 @@
                 xmlHttp.open( "GET", theUrl+tok+end+access, false );
                 xmlHttp.send( null );
                 var fbInfo = JSON.parse(xmlHttp.responseText);
-                var userId = fbInfo.data.user_id;
+                userId = fbInfo.data.user_id;
 
                 saveFbUserInformation(userId, userToken);
 
-
             }("https://graph.facebook.com/debug_token?input_token=", userToken,"&access_token=",appAccessToken));
-//            window.location.replace("https://graph.facebook.com/debug_token?input_token=", userToken,"&access_token=",appAccessToken)
         }
-        var db = Ti.Database.openFile(Ti.Filesystem.getFile(
-                Ti.Filesystem.getApplicationDataDirectory(), 'customdatabase.db'));
 
-        var rows = db.execute("SELECT * FROM Facebook");
-        while (rows.isValidRow()) {
-            //Alert the value of fields id and firstName from the Users database
-            alert('The user id is '+rows.fieldByName('user_id')+', and user Token is '+rows.fieldByName('user_token'));
-            rows.next();
-        }
     </script>
 
 
