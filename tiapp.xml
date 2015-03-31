@@ -10,7 +10,7 @@
 <!-- Window Definition - these values can be edited -->
 <window>
 <id>initial</id>
-<title>HelloWorld</title>
+<title>PostOp</title>
 <url>app://index.html</url>
 <width>700</width>
 <max-width>3000</max-width>
