@@ -1,4 +1,21 @@
-<!-- USE INDEX.PHP-->
+<?php session_start();
+/**
+ * Created by PhpStorm.
+ * User: Sparagmos
+ * Date: 3/31/15
+ * Time: 11:43 AM
+ */
+?>
+<?php
+
+?>
+
+<script>
+    window.localStorage.test='testies';
+
+</script>
+
+
 
 <!doctype html>
 <html>
@@ -13,13 +30,13 @@
   <title>PostOP</title>
   <style>
     .rounded {
-      padding-top: 20px;
+    padding-top: 20px;
       padding-bottom: 10px;
       border-radius:5px;
     }
     label{
-      color: white;
-    }
+    color: white;
+}
   </style>
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/socialMediaIconCSS.css" rel="stylesheet">
@@ -29,14 +46,14 @@
 
 <div class="container">
   <script>
-    createDatabase();
+createDatabase();
   </script>
   <div class="row">
     <h3 class="text-center" style="color: #ffffff; margin-bottom: 10%"> Ladies Knight: PostOP </h3>
   </div>
 
   <div class="row" style="margin: 20px">
-    <form action="socialMedias.html" method="post">
+    <form action="socialMedias.php" method="post">
       <div class="col-xs-12 rounded" style="background: grey">
         <div class="form-group col-xs-6">
           <label for="first-name">First Name: </label>
@@ -66,12 +83,16 @@
 </div>
 
 <script>
-    alert(globalObject.publicVariable);
-    alert(globalObject.publicMethod());
     var fn = document.getElementById('first-name').value;
     var ln = document.getElementById('last-name').value;
     var un = document.getElementById('username').value;
     var pw = document.getElementById('password').value;
+</script>
+
+<script>
+    Ti.App.Properties.setString('sessionId','<?php print_r(session_id()); ?>');
+    var httpClient = Ti.Network.createHTTPClient();
+    httpClient.setCookie('PHPSESSIONID',Ti.App.Properties.getString('sessionId'));
 </script>
 
 <script src="js/bootstrap.min.js"></script>

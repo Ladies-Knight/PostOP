@@ -11,7 +11,7 @@
 <window>
 <id>initial</id>
 <title>PostOp</title>
-<url>app://index.html</url>
+<url>app://index.php</url>
 <width>700</width>
 <max-width>3000</max-width>
 <min-width>0</min-width>
