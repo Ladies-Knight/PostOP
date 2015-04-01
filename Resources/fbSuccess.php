@@ -18,7 +18,7 @@
     <script src="js/bootstrap.min.js"></script>
     <script src="db.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-
+    <script src="~/Users/Sparagmos/Ti.js"></script>
     <script src="//connect.facebook.net/en_US/all.js"></script>
     <script>
         var appAccessToken;
@@ -72,6 +72,9 @@
 
 </head>
 <body>
+
+<!--<a href="facebookLogin.html">link whatever</a>-->
+
 
 </body>
 </html>

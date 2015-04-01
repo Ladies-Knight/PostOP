@@ -617,8 +617,9 @@ abstract class BaseFacebook
    */
   public function getLoginUrl($params=array()) {
     $this->establishCSRFTokenState();
-    $currentUrl = $this->getCurrentUrl();
+    //$currentUrl = $this->getCurrentUrl();
 
+      $url = isset($params['redirect_uri']) ? $params['redirect_uri'] : null;
     // if 'scope' is passed as an array, convert to comma separated list
     $scopeParams = isset($params['scope']) ? $params['scope'] : null;
     if ($scopeParams && is_array($scopeParams)) {
@@ -631,7 +632,7 @@ abstract class BaseFacebook
       array_merge(
         array(
           'client_id' => $this->getAppId(),
-          'redirect_uri' => $currentUrl, // possibly overwritten
+          'redirect_uri' => $url, //$currentUrl, // possibly overwritten
           'state' => $this->state,
           'sdk' => 'php-sdk-'.self::VERSION
         ),

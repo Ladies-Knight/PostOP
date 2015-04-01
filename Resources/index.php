@@ -12,6 +12,7 @@
 
 <script>
     window.localStorage.test='testies';
+    alert(Ti.App.Properties.port);
 
 </script>
 
