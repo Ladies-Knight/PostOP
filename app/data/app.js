@@ -89,7 +89,6 @@ window.on('ready', function(){
   console.log("Window Ready");
   window.process = process;
   window.module = module;
-    window.frame.openDevTools();
 
   function F12(e){ return e.keyIdentifier === 'F12' }
   function Command_Option_J(e){ return e.keyCode === 74 && e.metaKey && e.altKey }
