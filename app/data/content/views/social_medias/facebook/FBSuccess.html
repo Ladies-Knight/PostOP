@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Success</title>
+    <script src="../../../js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+
+    <div id="fb-root"></div>
+    <script src="//connect.facebook.net/en_US/all.js"></script>
+    <script>
+        var appAccessToken;
+        var userToken;
+        var FB;
+
+        FB.init({
+            appId      : '331246753731437',
+            //channelUrl : '//WWW.YOUR_DOMAIN.COM/channel.html', // Channel File
+            status     : true, // check login status
+            cookie     : true, // enable cookies to allow the server to access the session
+            xfbml      : true  // parse XFBML
+        });
+        FB.login();
+
+        FB.getLoginStatus(function(response) {
+            appAccessToken = response.authResponse.accessToken;
+            console.log("appAccessToken === " + appAccessToken);
+            console.log("response.status === " + response.status);
+            urlChecker();
+        });
+
+        userToken = document.URL;
+
+
+
+
+//        window.onload(urlChecker());
+
+        function urlChecker () {
+
+            userToken = userToken.toString();
+            //console.log("furst userToken " + userToken[1]);
+            userToken = userToken.split("=");
+            //console.log("sucond userToken " + userToken[1]);
+            userToken = userToken[1].split("&");
+            //parses facebook login response userToken and prints auth userToken
+            userToken = userToken[0];
+            //console.log("userToken === " + userToken);
+
+
+
+
+
+            (function(theUrl,tok,end,access)
+            {
+                var xmlHttp = null;
+
+                //console.log(theUrl+userToken+end+access);
+                xmlHttp = new XMLHttpRequest();
+                xmlHttp.open( "GET", theUrl+tok+end+access, false );
+                xmlHttp.send( null );
+                return xmlHttp.responseText;
+            }("https://graph.facebook.com/debug_token?input_token=", userToken,"&access_token=",appAccessToken));
+
+
+
+            window.location.replace("http://localhost:63343/PostOP/app/data/content/FuckMiller.html")
+
+        }
+
+
+    </script>
+
+
+
+</head>
+<body>
+
+</body>
+</html>
